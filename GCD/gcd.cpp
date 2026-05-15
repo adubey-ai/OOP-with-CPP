@@ -1,4 +1,3 @@
-//C++ Program
 //GCD of Two Numbers
 #include<bits/stdc++.h>
 
