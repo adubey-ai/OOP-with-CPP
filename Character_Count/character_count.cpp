@@ -8,7 +8,7 @@ int main()
     int i;
     int freq[256] = {0};
     
-    //Accepting inputs.
+    //Accepting inputs
     cout<<"Enter the string: ";
     gets(str);
     
