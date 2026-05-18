@@ -1,4 +1,4 @@
-#take user input
+#take user input 
 String = input('Enter the string :')
 #take character input
 Character = input('Enter character :')
