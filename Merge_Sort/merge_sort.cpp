@@ -39,7 +39,7 @@ void mergeSort(int a[], int left, int right) {
   int mid;
   if (left < right) {
     // can also use mid = left + (right - left) / 2
-    // this can avoid data type overflow
+    // this can avoid data type overflow.
     mid = (left + right) / 2;
 
     // recursive calls to sort first half and second half subarrays
