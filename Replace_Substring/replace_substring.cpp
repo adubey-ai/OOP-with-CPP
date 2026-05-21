@@ -40,7 +40,7 @@ void replaceSubstring(char st[],char sub[],char new_str[])//Function to replace 
         }
     }
 }
-//Main function.
+//Main function
 int main() 
 {
     char st[100] = "prepinsta",sub[100] = "insta",new_str[100]="ster ";
