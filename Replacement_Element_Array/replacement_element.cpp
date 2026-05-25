@@ -9,7 +9,7 @@ int main(){
     for(int i=0; i<n; i++)
     temp[i] = arr[i];
     
-    //sort the copied array
+    //sort the copied array using STL sort function
     sort(temp, temp+n);
     
     for(int i=0; i<n; i++){
