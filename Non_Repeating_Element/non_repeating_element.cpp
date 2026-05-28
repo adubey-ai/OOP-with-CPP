@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Main function to run the program
+// Main function to run the program.
 int main() 
 { 
     int arr[] = {10, 30, 10, 20, 40, 20, 50, 10}; 
