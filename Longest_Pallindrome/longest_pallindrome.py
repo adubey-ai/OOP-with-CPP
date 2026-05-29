@@ -17,7 +17,7 @@ def isPalindrome(n):
       divisor = int(divisor / 100)
    return True
 
-# Function to find the largest palindromic element
+# Function to find the largest palindromic element in string
 def largestPalindrome(arr, n):
    currentMax = -1
 
