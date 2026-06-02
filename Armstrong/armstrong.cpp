@@ -1,7 +1,6 @@
 #include<iostream>
 #include<math.h>
 using namespace std;
-
 // Armstrong number is any number following the given rule
 // abcd... = a^n + b^n + c^n + d^n + ...
 // Where n is the order(length/digits in number)
