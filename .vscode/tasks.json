@@ -1,6 +1,86 @@
 {
     "tasks": [
         {
+            "label": "Rewrite email (clean) and push",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && had_stash=0 && if ! git diff --quiet -- .vscode/tasks.json; then git stash push -m temp_tasks_before_push3 -- .vscode/tasks.json && had_stash=1; fi && git fetch origin && n=$(git rev-list --count origin/main..HEAD) && if [ \"$n\" -gt 0 ]; then GIT_AUTHOR_NAME=adubey-ai GIT_AUTHOR_EMAIL=adubey-ai@users.noreply.github.com GIT_COMMITTER_NAME=adubey-ai GIT_COMMITTER_EMAIL=adubey-ai@users.noreply.github.com git rebase -x \"git commit --amend --no-edit --reset-author\" HEAD~$n; fi && git push origin main && if [ \"$had_stash\" -eq 1 ]; then git stash pop; fi"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Recover from stuck rebase",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && backup=/tmp/copilot_tasks_recover_$$.json && had_file=0 && if [ -f .vscode/tasks.json ]; then mkdir -p /tmp && cp .vscode/tasks.json \"$backup\" && rm .vscode/tasks.json && had_file=1; fi && git rebase --abort || true && if [ \"$had_file\" -eq 1 ]; then mkdir -p .vscode && mv \"$backup\" .vscode/tasks.json; fi && git status --short"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Abort rebase rewrite and push",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && git rebase --abort || true && had_stash=0 && if ! git diff --quiet -- .vscode/tasks.json; then git stash push -m temp_tasks_before_push2 -- .vscode/tasks.json && had_stash=1; fi && git fetch origin && n=$(git rev-list --count origin/main..HEAD) && if [ \"$n\" -gt 0 ]; then git rebase -x \"GIT_AUTHOR_NAME=adubey-ai GIT_AUTHOR_EMAIL=adubey-ai@users.noreply.github.com GIT_COMMITTER_NAME=adubey-ai GIT_COMMITTER_EMAIL=adubey-ai@users.noreply.github.com git commit --amend --no-edit --reset-author\" HEAD~$n; fi && git push origin main && if [ \"$had_stash\" -eq 1 ]; then git stash pop; fi"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Recover rebase and push",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && GIT_AUTHOR_NAME=adubey-ai GIT_AUTHOR_EMAIL=adubey-ai@users.noreply.github.com GIT_COMMITTER_NAME=adubey-ai GIT_COMMITTER_EMAIL=adubey-ai@users.noreply.github.com git commit --amend --no-edit --reset-author && GIT_AUTHOR_NAME=adubey-ai GIT_AUTHOR_EMAIL=adubey-ai@users.noreply.github.com GIT_COMMITTER_NAME=adubey-ai GIT_COMMITTER_EMAIL=adubey-ai@users.noreply.github.com git rebase --continue && n=$(git rev-list --count origin/main..HEAD) && if [ \"$n\" -gt 0 ]; then git rebase -x \"GIT_AUTHOR_NAME=adubey-ai GIT_AUTHOR_EMAIL=adubey-ai@users.noreply.github.com GIT_COMMITTER_NAME=adubey-ai GIT_COMMITTER_EMAIL=adubey-ai@users.noreply.github.com git commit --amend --no-edit --reset-author\" HEAD~$n; fi && git push origin main && if git stash list | grep -q temp_tasks_before_push; then git stash pop; fi"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Rewrite email and push main",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && had_stash=0 && if ! git diff --quiet -- .vscode/tasks.json; then git stash push -m temp_tasks_before_push -- .vscode/tasks.json && had_stash=1; fi && n=$(git rev-list --count origin/main..HEAD) && if [ \"$n\" -gt 0 ]; then git rebase -x \"git commit --amend --no-edit --reset-author --author=\\\"adubey-ai <adubey-ai@users.noreply.github.com>\\\"\" HEAD~$n; fi && git push origin main && if [ \"$had_stash\" -eq 1 ]; then git stash pop; fi"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Git commits ahead of origin",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && git fetch origin && git rev-list --count origin/main..HEAD && git log --oneline origin/main..HEAD"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Rewrite local commit email to noreply",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && n=$(git rev-list --count origin/main..HEAD) && if [ \"$n\" -gt 0 ]; then git rebase -x \"git commit --amend --no-edit --reset-author --author=\\\"adubey-ai <adubey-ai@users.noreply.github.com>\\\"\" HEAD~$n; else echo \"No local commits ahead of origin/main\"; fi"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Git push origin main",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && git push origin main"
+            ],
+            "problemMatcher": []
+        },
+        {
             "label": "Git status short",
             "type": "shell",
             "command": "bash",
@@ -47,6 +127,16 @@
             "args": [
                 "-lc",
                 "cd /workspaces/OOP-with-CPP && g++ -Wall -Wextra -pedantic Binary_to_decimal.cpp -o Binary_to_decimal_cpp && printf \"%s\\n\" \"10101\" | ./Binary_to_decimal_cpp"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Commit changed files one by one",
+            "type": "shell",
+            "command": "bash",
+            "args": [
+                "-lc",
+                "cd /workspaces/OOP-with-CPP && set -e && if ! git diff --quiet -- Anagram/anagram.cpp; then git add -- Anagram/anagram.cpp && git -c user.name=adubey-ai -c user.email=adarshiist@gmail.com commit -m \"Fix input handling in anagram C++ program\"; fi && if ! git diff --quiet -- Character_Count/character_count.cpp; then git add -- Character_Count/character_count.cpp && git -c user.name=adubey-ai -c user.email=adarshiist@gmail.com commit -m \"Fix character frequency counting input handling\"; fi && if ! git diff --quiet -- Palindrom/palindrom.cpp; then git add -- Palindrom/palindrom.cpp && git -c user.name=adubey-ai -c user.email=adarshiist@gmail.com commit -m \"Fix palindrome string input in C++\"; fi && if ! git diff --quiet -- Replace_Substring/replace_substring.cpp; then git add -- Replace_Substring/replace_substring.cpp && git -c user.name=adubey-ai -c user.email=adarshiist@gmail.com commit -m \"Update replace substring file to modern headers\"; fi && if ! git diff --quiet -- String_Palindrome/string_palindrom.cpp; then git add -- String_Palindrome/string_palindrom.cpp && git -c user.name=adubey-ai -c user.email=adarshiist@gmail.com commit -m \"Repair broken string palindrome C++ implementation\"; fi && if ! git diff --quiet -- .vscode/tasks.json; then git add -- .vscode/tasks.json && git -c user.name=adubey-ai -c user.email=adarshiist@gmail.com commit -m \"Update VS Code tasks configuration\"; fi && git status --short"
             ],
             "problemMatcher": []
         },
