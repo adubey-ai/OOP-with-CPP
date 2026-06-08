@@ -1,6 +1,6 @@
 //Replace a Substring in a String
-#include<iostream.h> 
-#include<string.h> 
+#include <cstring>
+#include <iostream>
 using namespace std;
 void replaceSubstring(char st[],char sub[],char new_str[])//Function to replace substring.
 {
