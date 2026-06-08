@@ -6,7 +6,11 @@ int main()
     int arr[] = {21, 30, 10, 2, 10, 20, 30, 11}; 
     int n = sizeof(arr)/sizeof(arr[0]); 
 
-    int visited[n];
+   int visited[n];
+
+   for (int i = 0; i < n; i++) {
+      visited[i] = 0;
+   }
  
     for(int i=0; i<n; i++){
 
@@ -18,8 +22,8 @@ int main()
                 visited[j]=1;
              }
           }
-         if(count==1)
-          printf("%d "arr[i]);
+          if(count==1)
+           printf("%d ", arr[i]);
        }
    }
    
