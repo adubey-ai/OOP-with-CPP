@@ -1,4 +1,4 @@
-#include 
+#include <stdio.h>
 int main() {
 int r, c, a[100][100], b[100][100], sum[100][100], i, j;
 printf("Enter the number of rows (between 1 and 100): ");
