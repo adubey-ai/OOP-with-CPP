@@ -1,29 +1,29 @@
-#include<bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
 int main()
 {
-    //Initializing variables.
-    char str[100];
-    int i;
+    // Initializing variables.
+    string str;
     int freq[256] = {0};
     
-    //Accepting inputs
-    cout<<"Enter the string: ";
-    gets(str);
+    // Accepting input.
+    cout << "Enter the string: ";
+    getline(cin, str);
     
-    //Calculating frequency of each character.
-    for(i = 0; str[i] != '\0'; i++)
+    // Calculating frequency of each character.
+    for (char ch : str)
     {
-        freq[str[i]]++;
+        freq[static_cast<unsigned char>(ch)]++;
     }
     
-    //Printing frequency of each character.
-    for(i = 0; i < 256; i++)
+    // Printing frequency of each character.
+    for (int i = 0; i < 256; i++)
     {
-        if(freq[i] != 0)
+        if (freq[i] != 0)
         {
-           cout<<"The frequency of "<<char(i)<<" is "<<freq[i]<<endl;
+           cout << "The frequency of " << char(i) << " is " << freq[i] << endl;
         }
     }
     return 0;
