@@ -1,5 +1,6 @@
-#include
-Numbers(int n);
+#include <stdio.h>
+
+int addNumbers(int n);
 
 int main() {
 
