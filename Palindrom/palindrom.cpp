@@ -1,31 +1,30 @@
-#include<bits/stdc++.h> 
+#include <iostream>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-    //Initializing variable.
-    char str[100];  
-    int i,length=0,flag=0;
+    // Initializing variables.
+    string str;
+    int flag = 0;
 
-    //Accepting input.
-    cout<<"Enter  the string : "<<endl;
-    gets(str);
-    length=strlen(str);
+    // Accepting input.
+    cout << "Enter the string : " << endl;
+    getline(cin, str);
 
-    //Initializing for loop.
-    for(i=0;i<length/2;i++)  
+    // Checking if string is palindrome or not.
+    for (size_t i = 0; i < str.length() / 2; i++)
     {
-      //Checking if string is palindrome or not.
-      if(str[i]==str[length-i-1])
-      flag++;
-
+      if (str[i] == str[str.length() - i - 1])
+        flag++;
     }
-      //Printing result.
-      if(flag==i)
- 	cout<<"String entered is palindrome";
-      else
-        cout<<"String entered is not palindrome";
 
-      return 0;
+    // Printing result.
+    if (flag == static_cast<int>(str.length() / 2))
+      cout << "String entered is palindrome";
+    else
+      cout << "String entered is not palindrome";
+
+    return 0;
 }
