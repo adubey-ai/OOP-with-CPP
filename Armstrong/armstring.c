@@ -1,5 +1,4 @@
-#include 
-#include 
+#include <stdio.h>
 
 // Armstrong number is any number following the given rule
 // abcd... = a^n + b^n + c^n + d^n + ...
@@ -23,6 +22,16 @@ int order(int x)
     return len;
 }
 
+int int_pow(int base, int exp)
+{
+    int result = 1;
+    for (int i = 0; i < exp; i++)
+    {
+        result *= base;
+    }
+    return result;
+}
+
 int armstrong(int num, int len){
 
     int sum = 0, temp, digit;
@@ -35,7 +44,7 @@ int armstrong(int num, int len){
         digit = temp % 10;
 
         // add power to sum
-        sum = sum + pow(digit,len);
+        sum = sum + int_pow(digit, len);
         temp /= 10;
     };
 
